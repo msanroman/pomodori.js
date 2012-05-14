@@ -85,8 +85,9 @@
       describe('server requests', function() {
         describe('on create', function() {
           beforeEach(function() {
-            this.task.id = null;
-            this.task.save();
+            var new_task;
+            new_task = new PomoJS.Models.Task();
+            new_task.save();
             return this.request = this.server.requests[0];
           });
           it('should be POST', function() {

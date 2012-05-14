@@ -1,28 +1,28 @@
 class PomoJS.Models.Task extends Backbone.Model
 
-	url: ->
-		url = "/tasks"
-		url += "/#{@.getId()}" unless @.isNew()
-		return url
+  url: ->
+    url = "/tasks"
+    url += "/#{@.getId()}" unless @.isNew()
+    return url
 
-	defaults: {
-		name: '',
-		completed: false,
-		estimation: 0
-	}
+  defaults: {
+    name: '',
+    completed: false,
+    estimation: 0
+  }
 
-	getId: -> @.get 'id'
+  getId: -> @.get 'id'
 
-	getName: -> @.get 'name'
+  getName: -> @.get 'name'
 
-	isCompleted: -> @.get 'completed'
+  isCompleted: -> @.get 'completed'
 
-	getEstimation: -> @.get 'estimation'
+  getEstimation: -> @.get 'estimation'
 
-	validate: (attributes) -> 
-		if @.getId() < 0
-			return 'invalid id'
-		if @.getEstimation() < 0
-			return 'invalid estimation'
+  validate: (attributes) -> 
+    if @.getId() < 0
+      return 'invalid id'
+    if @.getEstimation() < 0
+      return 'invalid estimation'
 
-	toJSON: -> {task: @.attributes}
+  toJSON: -> {task: @.attributes}

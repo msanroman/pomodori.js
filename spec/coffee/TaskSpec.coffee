@@ -83,8 +83,8 @@ describe 'Task', ->
       describe 'on create', ->
 
         beforeEach ->
-          @task.id = null
-          @task.save()
+          new_task = new PomoJS.Models.Task()
+          new_task.save()
           @request = @server.requests[0]
 
         it 'should be POST', ->
